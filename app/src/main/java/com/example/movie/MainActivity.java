@@ -36,12 +36,17 @@ public class MainActivity extends AppCompatActivity {
 
         ListView listView = (ListView) findViewById(R.id.Comment);
 
+        CommentAdapter adapter = new CommentAdapter();
+        //adapter.addItem();
+        listView.setAdapter(adapter);
+
         like.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 like_count++;
                 like_count_view.setText(""+like_count);
+                setVisible(true);
             }
         });
 
@@ -83,22 +88,29 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 0;
+            return items.size();
+        }
+        public void addItem(CommentItem item){
+            items.add(item);
         }
 
         @Override
         public Object getItem(int position) {
-            return null;
+            return items.get(position);
         }
 
         @Override
         public long getItemId(int position) {
-            return 0;
+            return position;
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            return null;
+            CommentItemView view = new CommentItemView(getApplicationContext());
+            CommentItem item= items.get(position);
+            //view.setId();
+
+            return view;
         }
     }
 }
