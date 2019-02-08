@@ -5,6 +5,10 @@
         android:drawable="@drawable/ic_thumb_down_selected"
         />
     <item
+        android:state_selected="true"
+        android:drawable="@drawable/ic_thumb_down_selected"
+        />
+    <item
         android:drawable="@drawable/ic_thumb_down"
         />
 </selector>

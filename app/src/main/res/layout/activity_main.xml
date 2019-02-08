@@ -100,7 +100,7 @@
             app:layout_constraintVertical_bias="0.428"
             app:srcCompat="@drawable/image11" />
 
-        <Button
+        <ImageButton
             android:id="@+id/like"
             android:layout_width="20dp"
             android:layout_height="20dp"
@@ -134,7 +134,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView3"
             app:layout_constraintVertical_bias="0.791" />
 
-        <Button
+        <ImageButton
             android:id="@+id/dislike"
             android:layout_width="20dp"
             android:layout_height="20dp"
@@ -171,26 +171,30 @@
     </android.support.constraint.ConstraintLayout>
 
     <LinearLayout
+        android:id="@+id/LL2"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:background="@drawable/shape"
         android:orientation="horizontal"
-        android:id="@+id/LL2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteX="135dp"
         tools:layout_editor_absoluteY="230dp">
+
         <RelativeLayout
+            android:id="@+id/RL1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:layout_weight="1"
-            android:id="@+id/RL1">
+            android:layout_weight="1">
+
             <TextView
                 android:id="@+id/RTV1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="예매율" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -198,31 +202,49 @@
                 android:layout_centerInParent="true"
                 android:text="5위 1.8%" />
         </RelativeLayout>
+
         <RelativeLayout
+            android:id="@+id/RL2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_weight="1"
-            android:id="@+id/RL2">
+            android:layout_weight="1">
+
             <TextView
                 android:id="@+id/RTV2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="평점" />
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:rating="3.5"
+                android:stepSize="0.5"
+                style="?android:attr/ratingBarStyleSmall"
+
+                android:layout_below="@id/RTV2"/>
         </RelativeLayout>
+
         <RelativeLayout
+            android:id="@+id/RL3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="end"
-            android:layout_weight="1"
-            android:id="@+id/RL3">
+            android:layout_weight="1">
+
             <TextView
                 android:id="@+id/RTV3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="누적관객수" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -231,18 +253,20 @@
                 android:text="839,399명" />
         </RelativeLayout>
     </LinearLayout>
+
     <RelativeLayout
+        android:id="@+id/RL4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/RL4">
+        android:background="@drawable/shape">
 
         <TextView
+            android:id="@+id/RL2TV1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/RL2TV1"
             android:layout_margin="5dp"
             android:text="줄거리"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/RL2TV2"
@@ -252,108 +276,109 @@
             android:layout_margin="5dp"
             android:layout_marginTop="-24dp"
             android:layout_marginBottom="5dp"
-            android:text="군도, 백성을 구하라!
-양반과 탐관오리들의 착취가 극에 달했던 조선 철종 13년.
-힘 없는 백성의 편이 되어 세상을 바로잡고자 하는 의적떼인 군도(群盜), 지리산 추설이 있었다.
+            android:text="@string/movie_intro" />
 
-쌍칼 도치 vs 백성의 적 조윤잦은 자연재해, 기근과 관의 횡포까지 겹쳐 백성들의 삶이 날로 피폐해져 가는 사이, 나주 대부호의 서자로 조선 최고의 무관 출신인 조윤은 극악한 수법으로 양민들을 수탈, 삼남지방 최고의 대부호로 성장한다. 한편 소, 돼지를 잡아 근근이 살아가던 천한 백정 돌무치는 죽어도 잊지 못할 끔찍한 일을 당한 뒤 군도에 합류. 지리산 추설의 신 거성(新 巨星) 도치로 거듭난다.
-
-뭉치면 백성, 흩어지면 도적!
-망할 세상을 뒤집기 위해, 백성이 주인인 새 세상을 향해 도치를 필두로 한 군도는 백성의 적, 조윤과 한 판 승부를 시작하는데..." />
         <TextView
+            android:id="@+id/RL2TV3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/RL2TV3"
             android:layout_below="@id/RL2TV2"
             android:layout_margin="5dp"
             android:text="감독/출연"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
+
         <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/RL2TV4"
-        android:layout_below="@id/RL2TV3"
-        android:layout_marginLeft="5dp"
-        android:textStyle="bold"
-        android:text="감독"/>
-        <TextView
+            android:id="@+id/RL2TV4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/RL2TV5"
-            android:layout_toRightOf="@id/RL2TV4"
             android:layout_below="@id/RL2TV3"
             android:layout_marginLeft="5dp"
-            android:text="윤종빈"/>
+            android:text="감독"
+            android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/RL2TV5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/RL2TV6"
-            android:layout_below="@id/RL2TV4"
+            android:layout_below="@id/RL2TV3"
             android:layout_marginLeft="5dp"
-            android:textStyle="bold"
-            android:text="감독"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/RL2TV7"
             android:layout_toRightOf="@id/RL2TV4"
+            android:text="윤종빈" />
+
+        <TextView
+            android:id="@+id/RL2TV6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@id/RL2TV4"
             android:layout_marginLeft="5dp"
-            android:text="하정우(도치), 강동원(조윤)"/>
+            android:text="감독"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/RL2TV7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/RL2TV4"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/RL2TV4"
+            android:text="하정우(도치), 강동원(조윤)" />
 
         <RelativeLayout
+            android:id="@+id/RL5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/RL5"
-            android:layout_below="@id/RL2TV7">
+            android:layout_below="@id/RL2TV7"
+            android:background="@drawable/shape">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/RL5RL">
+
             <TextView
+                android:id="@+id/RL5TV1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/RL5TV1"
-                android:text="한줄평"
-                android:textStyle="bold"
+                android:layout_marginLeft="5dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginLeft="5dp"/>
+                android:text="한줄평"
+                android:textStyle="bold" />
 
             <Button
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:background="@drawable/ic_review_selected"
-                android:layout_toLeftOf="@id/comment_btn"
-                android:layout_marginTop="20dp"
                 android:layout_marginLeft="-5dp"
-                />
+                android:layout_marginTop="20dp"
+                android:layout_toLeftOf="@id/comment_btn"
+                android:background="@drawable/ic_review_selected" />
 
-            <Button
-                android:id="@+id/comment_btn"
-                android:layout_width="60dp"
-                android:layout_height="40dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="10dp"
-                android:background="#ffffff"
-                android:text="작성하기"
-                android:textColor="#ff3300" />
+                <Button
+                    android:id="@+id/comment_btn"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#ffffff"
+                    android:text="작성하기"
+                    android:textColor="#ff3300" />
+            </RelativeLayout>
 
-            <LinearLayout
+            <ListView
+                android:id="@+id/Comment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="45dp">
+                android:layout_below="@id/RL5RL">
 
-                <ListView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/Comment">
-
-                </ListView>
-            </LinearLayout>
+            </ListView>
         </RelativeLayout>
+
         <Button
             android:id="@+id/all_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/linear_border"
             android:layout_below="@id/RL5"
+            android:background="@drawable/linear_border"
             android:text="모두 보기" />
     </RelativeLayout>
 </LinearLayout>

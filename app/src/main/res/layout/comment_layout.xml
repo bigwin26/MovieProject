@@ -7,36 +7,50 @@
     >
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@mipmap/ic_launcher" />
+        android:id="@+id/customer_pic"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:src="@drawable/user1" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="아이디"/>
+                android:id="@+id/comment_id_tv"
+                android:text="아이디"
+                android:textColor="#000000"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="시간"/>
+                android:id="@+id/comment_time_tv"
+                android:text="시간"
+                android:textColor="#000000"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="평점"/>
+                android:id="@+id/comment_star_tv"
+                android:text="평점"
+                android:textColor="#000000"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="코멘트"/>
+                android:id="@+id/comment_tv"
+                android:text="코멘트"
+                android:textColor="#000000"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="좋아요"/>
-
+                android:id="@+id/comment_like_tv"
+                android:text="좋아요"
+                android:textColor="#000000"/>
         </LinearLayout>
 </LinearLayout>

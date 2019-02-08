@@ -5,7 +5,10 @@
         android:state_pressed="true"
         />
     <item
+        android:drawable="@drawable/ic_thumb_up_selected"
+        android:state_selected="true"
+        />
+    <item
         android:drawable="@drawable/ic_thumb_up"
-        android:state_pressed="false"
         />
 </selector>

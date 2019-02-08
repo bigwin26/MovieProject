@@ -6,13 +6,15 @@ public class CommentItem {
     String star;
     String comment;
     String like;
+    int resId;
 
-    public CommentItem(String id, String time, String star, String comment, String like) {
+    public CommentItem(String id, String time, String star, String comment, String like, int resId) {
         this.id = id;
         this.time = time;
         this.star = star;
         this.comment = comment;
         this.like = like;
+        this.resId = resId;
     }
 
     public String getId() {
@@ -42,7 +44,6 @@ public class CommentItem {
     public String getComment() {
         return comment;
     }
-
     public void setComment(String comment) {
         this.comment = comment;
     }
@@ -55,14 +56,23 @@ public class CommentItem {
         this.like = like;
     }
 
+    public int getResId() {
+        return resId;
+    }
+
+    public void setResId(int resId) {
+        this.resId = resId;
+    }
+
     @Override
     public String toString() {
         return "CommentItem{" +
-                ", id='" + id + '\'' +
+                "id='" + id + '\'' +
                 ", time='" + time + '\'' +
                 ", star='" + star + '\'' +
                 ", comment='" + comment + '\'' +
                 ", like='" + like + '\'' +
+                ", resId=" + resId +
                 '}';
     }
 }
