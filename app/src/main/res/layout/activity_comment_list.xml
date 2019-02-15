@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CommentActivity"
+    tools:context=".Activity.CommentActivity"
     >
 
     <RelativeLayout
@@ -44,73 +44,75 @@
         tools:layout_editor_absoluteY="46dp">
 
         <RatingBar
-            android:id="@+id/comment_ratingBar"
+            android:id="@+id/ratingBar2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:isIndicator="true"
             android:numStars="5"
-            android:rating="0"
-            android:stepSize="0.5"/>
+            android:rating="3.5"
+            android:stepSize="0.5"
+            style="?android:attr/ratingBarStyleSmall"></RatingBar>
 
         <TextView
-            android:id="@+id/ratingBar_tv"
+            android:id="@+id/ratingBar_tv2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/comment_ratingBar"
+            android:layout_toRightOf="@id/ratingBar2"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
             android:textSize="20dp"
-            android:text="점"
+            android:text="@string/comment_intro"
             android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RL5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/RL2TV7"
+        android:background="@drawable/shape">
 
         <RelativeLayout
-            android:id="@+id/RL5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/RL2TV7"
-            android:background="@drawable/shape">
+            android:id="@+id/RL5RL">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/RL5TV1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/RL5RL">
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:text="한줄평"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/RL5TV1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="20dp"
-                    android:text="한줄평"
-                    android:textStyle="bold" />
+            <Button
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="-5dp"
+                android:layout_marginTop="20dp"
+                android:layout_toLeftOf="@id/comment_btn"
+                android:background="@drawable/ic_review_selected" />
 
-                <Button
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="-5dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_toLeftOf="@id/comment_btn"
-                    android:background="@drawable/ic_review_selected" />
-
-                <Button
-                    android:id="@+id/comment_btn"
-                    android:layout_width="60dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="#ffffff"
-                    android:text="작성하기"
-                    android:textColor="#ff3300" />
-            </RelativeLayout>
-
-            <ListView
-                android:id="@+id/Comment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/RL5RL">
-
-            </ListView>
+            <Button
+                android:id="@+id/comment_btn"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#ffffff"
+                android:text="작성하기"
+                android:textColor="#ff3300" />
         </RelativeLayout>
+
+        <ListView
+            android:id="@+id/Comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/RL5RL">
+
+        </ListView>
     </RelativeLayout>
 </LinearLayout>

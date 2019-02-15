@@ -1,4 +1,4 @@
-package com.example.movie;
+package com.example.movie.VO;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.movie.R;
 
 public class CommentItemView extends LinearLayout {
     TextView idTextView, timeTextView, starTextView, commentTextView, likeTextView;

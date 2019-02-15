@@ -1,9 +1,15 @@
-package com.example.movie;
+package com.example.movie.Activity;
 
 import android.content.Intent;
 import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -14,11 +20,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import com.example.movie.R;
+import com.example.movie.VO.CommentItem;
+import com.example.movie.VO.CommentItemView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener,NavigationView.OnNavigationItemSelectedListener {
 
     //변수선언
     TextView like_count_view, dislike_count_view;
@@ -28,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int like_count = 0;
     int dislike_count = 0;
     ListView listView;
+    Toolbar toolbar;
 
     //어댑터 클릭이벤트 사용하기 위함
     CommentAdapter adapter;
@@ -36,6 +45,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //툴바
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        //드로어
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        //네비게이션
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
 
         //버튼 객체생성
         like = (ImageButton) findViewById(R.id.like);
@@ -68,7 +93,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dislike.setOnClickListener(this);
         comment_btn.setOnClickListener(this);
         all_btn.setOnClickListener(this);
-
     }
 
     //클릭이벤트 구현
@@ -107,6 +131,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.all_btn:
                 toast.makeText(getApplicationContext(), "모두보기 버튼이 눌렸습니다.", Toast.LENGTH_SHORT).show();
+                Intent intent2 = new Intent(getApplicationContext(), CommentListActivity.class);
+                startActivityForResult(intent2,102);
                 break;
         }
     }
@@ -176,4 +202,70 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             adapter.addItem(new CommentItem(id,"지금",star,comment,"2",R.drawable.user1));
         }
     }
+    //뒤로가기 버튼
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+  /*  @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        // getMenuInflater().inflate(R.menu.navi, menu);
+        return true;
+    }*/
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_movie_list) {
+            // Handle the camera action
+        } else if (id == R.id.nav_movie_api) {
+
+        } else if (id == R.id.nav_movie_book) {
+
+        } else if (id == R.id.nav_setting) {
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+/*    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int curId = item.getItemId();
+        Intent intent = new Intent(getApplicationContext(), NaviActivity.class);
+        startActivityForResult(intent, 103); //requestCode = 화면코드네임
+        return super.onOptionsItemSelected(item);
+    }*/
 }

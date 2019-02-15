@@ -1,4 +1,4 @@
-package com.example.movie;
+package com.example.movie.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,12 +11,15 @@ import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.example.movie.R;
+
 public class CommentActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button save_btn,cancel_btn;
     RatingBar comment_ratingBar;
     TextView ratingBar_tv;
     EditText comment_et;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,26 +45,24 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         });
 
     }
-
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent();
+        intent = new Intent();
+            switch (v.getId()) {
+                case R.id.save_btn:
+                    intent.putExtra("id", "대승승");
+                    intent.putExtra("comment", comment_et.getText().toString());
+                    Log.i("comment값 =", comment_et.getText().toString());
+                    intent.putExtra("star", ratingBar_tv.getText().toString());
+                    Log.i("rating값=", ratingBar_tv.getText().toString());
 
-        switch (v.getId()) {
-            case R.id.save_btn:
-                intent.putExtra("id", "대승승");
-                intent.putExtra("comment", comment_et.getText().toString());
-                Log.i("comment값 =", comment_et.getText().toString());
-                intent.putExtra("star", ratingBar_tv.getText().toString());
-                Log.i("rating값=",ratingBar_tv.getText().toString());
+                    setResult(Activity.RESULT_OK, intent);
 
-                setResult(Activity.RESULT_OK, intent);
-
-            finish(); //코멘트 액티비티 화면 종료
-                break;
-            case R.id.cancel_btn:
-                setResult(Activity.RESULT_CANCELED,intent);
-                finish();
-        }
+                    finish(); //코멘트 액티비티 화면 종료
+                    break;
+                case R.id.cancel_btn:
+                    setResult(Activity.RESULT_CANCELED, intent);
+                    finish();
+            }
     }
 }

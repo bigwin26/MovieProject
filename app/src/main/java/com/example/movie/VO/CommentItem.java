@@ -1,4 +1,4 @@
-package com.example.movie;
+package com.example.movie.VO;
 
 public class CommentItem {
     String id;

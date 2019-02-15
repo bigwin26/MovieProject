@@ -8,4 +8,12 @@
         지리산 추설의 신 거성(新 巨星) 도치로 거듭난다.\n\n
         뭉치면 백성, 흩어지면 도적!\n
         망할 세상을 뒤집기 위해, 백성이 주인인 새 세상을 향해 도치를 필두로 한 군도는 백성의 적, 조윤과 한 판 승부를 시작하는데...</string>
+    <string name="comment_intro">8.2(1,142명 참여)</string>
+    <string name="title_activity_navi">NaviActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">DaeSeung Movie</string>
+    <string name="nav_header_subtitle">kmcweb17@kmcert.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
 </resources>
